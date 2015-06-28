@@ -14,6 +14,18 @@ app.config(function($routeProvider) {
 		templateUrl : 'app/user/registrationTmpl.html',
 		controller : 'RegistrationCtrl'
 	})
+	.when('/profile', {
+		templateUrl : 'app/profile/profileTmpl.html',
+		controller : 'ProfilCtrl'
+	})
+	.when('/edits', {
+		templateUrl : 'app/vidEdits/editsTmpl.html',
+		controller : 'EditsCtrl'
+	})
+	.when('/chat', {
+		templateUrl : 'app/chat/chatTmpl.html',
+		controller : 'ChatCtrl'
+	})
 	.otherwise('/');
 		
 });
