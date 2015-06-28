@@ -1,4 +1,6 @@
-var app = angular.module('snowyPlayground', ['ngRoute']);
+var app = angular.module('snowyPlayground', ['ngRoute', 'firebase']);
+
+app.constant('FBURL', 'https://snowyplayground.firebaseio.com/');
 
 app.config(function($routeProvider) {
 	$routeProvider

@@ -1,1 +1,30 @@
 {{registrationTest}}
+
+
+<section class="login">
+	<form name="loginForm" ng-submit="register()" novalidate>
+		<h1> Welcome to the playground! </h1>
+		<p>please register to join the fun</p>
+		<p class="error formerror" ng-show="message"> {{message}} </p>
+		
+		<!--REGISTRATION FORM-->
+		<input type="text" name="firstName" placeholder="First Name"
+			ng-model="user.firstName" ng-required="true" />
+				<p class="error validationerror" ng-show="loginForm.firstName.$invalid && loginForm.firstName.$touched">please enter your first name</p>
+				
+			<input type="text" name="lastName" placeholder="Last Name"
+			ng-model="user.lastName" ng-required="true" />
+				<p class="error validationerror" ng-show="loginForm.lastName.$invalid && loginForm.lastName.$touched">please enter your last name</p>
+				
+			<input type="email" name="email" placeholder="Email"
+			ng-model="user.email" ng-required="true" />
+				<p class="error validationerror" ng-show="loginForm.email.$invalid && loginForm.email.$touched">please enter a valid email address</p>
+				
+			<input type="password" name="password" placeholder="Password"
+			ng-model="user.password" ng-required="true" />
+				<p class="error validationerror" ng-show="loginForm.password.$invalid && loginForm.password.$touched">please enter a password</p>
+				
+				<button class="btnLogin" type="submit" ng-disabled="loginForm.$invalid"> Send It! </button>
+				<p>or <a href="#login" class="loginregisterswap">login here</a></p>
+	</form>
+</section>
