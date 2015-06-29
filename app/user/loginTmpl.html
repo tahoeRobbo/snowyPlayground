@@ -1,1 +1,23 @@
 {{loginTest}}
+
+
+<section class="login">
+	<form name="loginForm" ng-submit="login()" novalidate>
+		<h1> Welcome to the playground! </h1>
+		<p>please login to join the fun</p>
+		<p class="error formerror" ng-show="message"> {{message}} </p>
+		
+		<!--LOGIN FORM-->
+				
+			<input type="email" name="email" placeholder="Email"
+			ng-model="user.email" ng-required="true" />
+				<p class="error validationerror" ng-show="loginForm.email.$invalid && loginForm.email.$touched">please enter your email address</p>
+					
+			<input type="password" name="password" placeholder="Password"
+			ng-model="user.password" ng-required="true" />
+				<p class="error validationerror" ng-show="loginForm.password.$invalid && loginForm.password.$touched">please enter your password</p>
+				
+				<button class="btnLogin" type="submit" ng-disabled="loginForm.$invalid"> Send It! </button>
+				<p>or <a href="#register" class="loginregisterswap">register here</a></p>
+	</form>
+</section>
