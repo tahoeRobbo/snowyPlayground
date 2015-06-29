@@ -30,6 +30,6 @@ app.controller('RegistrationCtrl', function($scope, RegistrationService, $locati
 	$scope.logout = function() {
 		console.log('RegistrationCtrl $scope.logout HIT!');
 		RegistrationService.logoutUser();
-		$location.path('/login')
+		$location.path('/login');
 	};//End $scope.logout
 });

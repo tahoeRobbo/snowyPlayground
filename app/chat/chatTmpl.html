@@ -1,1 +1,10 @@
 {{chatTest}}
+
+
+<div class="content" ng-show="!currentUser">
+	<h1>Please <a ng-href="#/register">register</a> or <a ng-href="#/login">login</a> to chat</h1>
+</div>
+
+<div class="content" ng-show="currentUser">
+	<h1> Hello, {{currentUser.firstName}} </h1>
+</div>

@@ -3,15 +3,38 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Snowy Playground!!</title>
-	<link type="text/css" href="css/style.css" rel="stylesheet"/>
+	<link href="css/style.css" type="text/css" rel="stylesheet"/>
 </head>
+
 <body>
-	<div>
+	<div class="page">
+		<header>
+			<nav class="nav">
+				<div class="nav-table" ng-controller="RegistrationCtrl">
+					<ul>
+						<li ng-show="!currentUser"><a ng-href="#/login">Login</a></li>
+						<li ng-show="!currentUser"><a ng-href="#/register">Register</a></li>
+						<li><a ng-href="#/chat">Chat</a></li>
+						<li><a ng-href="#/profile">Profile</a></li>
+						<li ng-show="currentUser"><a ng-click="logout()">Logout</a></li>
+					</ul>
+				</div> <!--End class="nav-table-->
+			</nav>
+		</header>
+		<div class="userinfo"
+					ng-controller="RegistrationCtrl" ng-show="currentUser">
+			<div class="welcome">
+				<span>Hello, {{currentUser.firstName}}!</span>
+			</div>
+		</div> <!--END USERINFO-->
 		
-	</div>
+		<main class="content" ng-view>
+		
+		</main>
 	
-	<!--CONTAINS ALL ANGULAR TEMPLATE'S VIEWS-->
-	<ng-view></ng-view>
+	</div> <!--End class="page"-->
+
+
 
 
 	<!--ANGULAR-->
@@ -27,10 +50,13 @@
 	<!--SNOWY PLAYGROUND XD-->
 	<script src="app/app.js"></script>
 	<script src="app/user/RegistrationCtrl.js"></script>
+	<script src="app/user/RegistrationService.js"></script>
 	<script src="app/home/HomeCtrl.js"></script>
 	<script src="app/profile/ProfileCtrl.js"></script>
+	<script src="app/profile/ProfileService.js"></script>
 	<script src="app/vidEdits/EditsCtrl.js"></script>
 	<script src="app/chat/ChatCtrl.js"></script>
-	<script src="app/user/RegistrationService.js"></script>
+
+	
 </body>
 </html>
