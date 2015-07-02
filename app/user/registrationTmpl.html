@@ -16,6 +16,10 @@
 			ng-model="user.lastName" ng-required="true" />
 				<p class="error validationerror" ng-show="loginForm.lastName.$invalid && loginForm.lastName.$touched">please enter your last name</p>
 				
+			<input type="text" name="userName" placeholder="User Name"
+			ng-model="user.userName" ng-required="true" />
+				<p class="error validationerror" ng-show="loginForm.userName.$invalid && loginForm.userName.$touched">please enter a user name</p>
+				
 			<input type="email" name="email" placeholder="Email"
 			ng-model="user.email" ng-required="true" />
 				<p class="error validationerror" ng-show="loginForm.email.$invalid && loginForm.email.$touched">please enter a valid email address</p>
