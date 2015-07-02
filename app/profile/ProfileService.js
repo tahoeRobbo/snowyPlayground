@@ -9,9 +9,11 @@ app.service('ProfileService', function($rootScope, $firebaseObject, FBURL){
 		var userRef = new Firebase(FBURL + '/users/' + $rootScope.currentUser.uid);
 		var userObj = $firebaseObject(userRef);
 		
-		userObj.$loaded(function(){
+		return userObj.$loaded(function(){
 				userObj.summary = user.summary;
 			userObj.$save();//after the fbObj is loaded, add new key/val
+		
+			
 		});
 	};// end this.addSummary
 		

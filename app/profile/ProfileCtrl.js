@@ -7,7 +7,7 @@ app.controller('ProfileCtrl', function($scope, ProfileService) {
 		console.log('$scope.addSummary HIT');
 		ProfileService.addSummary($scope.user);
 	}; // end $scope.addSummary
-	
+		
 	$scope.addPic = function() {
 		console.log('$scope.addSummary HIT');
 		ProfileService.addPic();
