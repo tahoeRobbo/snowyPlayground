@@ -85,26 +85,40 @@ html {
 	background-image : url(../images/TahoeBg2.jpg);
 	min-height : 100%;
 	height : auto;
+	background-attachment : fixed;
+	background-position : center
 }
 
 body {
 	font-family : Helvetica, sans-serif;
 	font-size : 1.4rem;
-	color : #FFF132;
+	color : rgba(17, 49, 112, 0.9)
 }
+
 main {
 	background-color : rgba(221, 221, 221, 0.65);
 	width: 80%;
+	padding : 10px 20px;
 	min-width : 310px;
 	max-width : 720px;
 	margin : 0 auto;
 	border-radius : 7px;
 	text-align : center;
 	-webkit-box-shadow: 0px 0px 6px 1px #ccc;
-	
-	
 }
 
+input {
+	border-radius : 4px;
+	display : inline-block;
+	width : 100%;
+	background-color : rgba(64, 64, 64, .45);
+	padding 10px 0px 10px 25px;
+	margin : 4px;
+	font-size : 1.1rem;
+	color : rgba(255, 227, 50, 0.9)
+}
+
+/*NAV BAR STYLING*/
 nav {
 	width : 100%;
 	background-color : rgba(221, 221, 221, 0.65);
@@ -139,6 +153,9 @@ nav ul li a:hover {
 	border-radius : 10px;
 }
 
+
+
+	
 
 
 

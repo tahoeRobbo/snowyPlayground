@@ -4,6 +4,23 @@
 	<h1>Please <a ng-href="#/register">register</a> or <a ng-href="#/login">login</a> to view your profile</h1>
 </div>
 
+
+
 <div class="content" ng-show="currentUser">
+
+<!--INPUTS-->
 	<h1> Hello, {{currentUser.firstName}} </h1>
-</div>
+	<form class="profile input">
+		<input type="text" ng-model="user.summary" ng-submit="addSummary()" placeholder="summary"/>
+		<button ng-click="addSummary()"></button>
+	</form>
+	
+	<!--DISPLAYS-->
+	<div class="profile display">
+		<p> {{currentUser.summary}} </p>
+	</div>
+	
+	
+</div> <!--end content-->
+
+

@@ -18,7 +18,7 @@ app.config(function($routeProvider) {
 	})
 	.when('/profile', {
 		templateUrl : 'app/profile/profileTmpl.html',
-		controller : 'ProfilCtrl'
+		controller : 'ProfileCtrl'
 	})
 	.when('/edits', {
 		templateUrl : 'app/vidEdits/editsTmpl.html',
