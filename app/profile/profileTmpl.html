@@ -13,11 +13,15 @@
 	<form class="profile input">
 		<input type="text" ng-model="user.summary" ng-submit="addSummary()" placeholder="summary"/>
 		<button ng-click="addSummary()"></button>
+		
+		<input type="file" />
+		<button ng-click="addPic()"></button>
 	</form>
 	
 	<!--DISPLAYS-->
 	<div class="profile display">
 		<p> {{currentUser.summary}} </p>
+		<img ng-src="{{currentUser.picData}}" height="200px" />
 	</div>
 	
 	

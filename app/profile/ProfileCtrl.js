@@ -6,5 +6,10 @@ app.controller('ProfileCtrl', function($scope, ProfileService) {
 	$scope.addSummary = function() {
 		console.log('$scope.addSummary HIT');
 		ProfileService.addSummary($scope.user);
-	};
+	}; // end $scope.addSummary
+	
+	$scope.addPic = function() {
+		console.log('$scope.addSummary HIT');
+		ProfileService.addPic();
+	}
 });
