@@ -136,8 +136,8 @@ nav ul {
 
 nav ul li {
 	float: left;
-	color : #030807;
-	font-family : Bree Serif, serif;
+	color : rgba(17, 49, 112, 0.9);
+	font-family : Helvetica, sans-serif;
 
 }
 
@@ -149,7 +149,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-	color : #FFF132;
+	color : rgba(255, 255, 255, 0.9);
 	border-radius : 10px;
 }
 
