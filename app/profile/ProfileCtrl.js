@@ -5,7 +5,10 @@ app.controller('ProfileCtrl', function($scope, ProfileService) {
 	
 	$scope.addSummary = function() {
 		console.log('$scope.addSummary HIT');
-		ProfileService.addSummary($scope.user);
+		ProfileService.addSummary($scope.user)
+		.then(function() {
+			$scope.user.summary = '';
+		});
 	}; // end $scope.addSummary
 		
 	$scope.addPic = function() {
