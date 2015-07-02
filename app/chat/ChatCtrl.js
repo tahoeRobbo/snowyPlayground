@@ -18,3 +18,4 @@ app.controller('ChatCtrl', function($scope, ChatService, FBURL, $firebaseArray) 
 
 
 });//end ChatCtrl
+

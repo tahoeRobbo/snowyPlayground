@@ -17,11 +17,12 @@ app.service('ProfileService', function($rootScope, $firebaseObject, FBURL){
 		});
 	};// end this.addSummary
 		
-		this.addPic = function(user) {
+		this.addPic = function() {
 			console.log('service addPic HIT');
+			
 			var userRef = new Firebase(FBURL + '/users/' + $rootScope.currentUser.uid);
 		var userObj = $firebaseObject(userRef);
-			
+		
 			userObj.$loaded(function() {
 				var file = document.querySelector('input[type=file]').files[0];
 				var reader = new FileReader();
@@ -35,13 +36,39 @@ app.service('ProfileService', function($rootScope, $firebaseObject, FBURL){
 					userObj.picData = reader.result;
 					userObj.$save();
 				};
-
-				
-			});
-			
-			
+			});//end userObj.$loaded()
 		}; // end this.addPic
 		
+	this.newPic = function() {
+			document.querySelector('input[type=file]').click();
+					var file = document.querySelector('input[type=file]').files[0];
+				var reader = new FileReader();
+				var preview = document.querySelector('#preview');
+				if(file) {
+					console.log('if file, within service newPic');
+					reader.readAsDataURL(file);
+				}
+				
+				reader.onloadend = function() {
+					preview.src = reader.result;
+				};
+	};//end this.newPic
+
+	
+	/*this.previewPic = function() {
+		return function() {
+			var file = document.querySelector('input[type=file]').files[0];
+			var reader = new FileReader();
+			var preview = document.querySelector('#preview');
+			
+			if(file){
+				reader.readAsDataURL(file);
+			}
+			reader.onloadend = function() {
+				preview.src = reader.result;
+			};
+		};
+	};//end this.previewPic*/
 
 	
 });//End Profile Service

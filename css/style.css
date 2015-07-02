@@ -79,6 +79,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 	clear: both;
 }
 
+.hidden {
+	visibility: hidden;
+}
+
  /*Set the overall style of the entire document */
 
 html {
