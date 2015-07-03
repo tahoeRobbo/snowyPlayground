@@ -10,9 +10,9 @@
 	<!--DISPLAYS-->
 	<div class="profile display">
 		<h1 class="userName">{{currentUser.userName}}</h1>
-		<img ng-src="{{currentUser.picData}}" id="profilePic" height="200px" width="200px" ng-click="newPic()" alt="Click to add a sweet profile pic!" ng-show="!preview"/>
+		<img ng-src="{{currentUser.picData}}" id="profilePic" height="200px" width="200px" ng-click="newPic()" alt="Click to add a sweet profile pic!" ng-show="!toggleSavePic"/>
 		
-				<img src="" id="preview" height="200px" width="200px" ng-model="preview"/>
+				<img src="" id="preview" height="200px" width="200px" ng-model="preview" ng-show="toggleSavePic"/>
 		
 		<span><button ng-click="addPic()" ng-show="toggleSavePic">Save Pic</button></span>
 		<p> summary: {{currentUser.summary}} </p>
@@ -22,7 +22,8 @@
 	<form class="profile input">
 		<input type="text" ng-model="user.summary" ng-submit="addSummary()" placeholder="summary"/>
 		<button ng-click="addSummary()"></button>
-		<input type="file" class="hidden"/>
+		<input type="file" class="hidden"
+		onchange="previewFile()"/>
 	</form>
 	
 
