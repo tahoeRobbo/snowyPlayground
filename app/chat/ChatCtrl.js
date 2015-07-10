@@ -1,7 +1,6 @@
 var app = angular.module('snowyPlayground');
 
 app.controller('ChatCtrl', function($scope, ChatService, FBURL, $firebaseArray) {
-	$scope.chatTest = "FIN BE CHATTIN WITH IMAGES N SHIT";
 	
 	var ref = new Firebase(FBURL + '/messages');
 	var fbMessages = $firebaseArray(ref);
