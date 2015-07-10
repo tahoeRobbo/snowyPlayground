@@ -1,7 +1,16 @@
 var app = angular.module('snowyPlayground');
 
 app.controller('ProfileCtrl', function($scope, ProfileService) {
-	$scope.profileTest = "shiiit, you'll be able to let the world know right here!";
+	
+	$scope.showEditProfile = false;
+	
+	$scope.editProfile = function() {
+		$scope.showEditProfile = true;
+	};
+	
+	$scope.doneEditProfile = function() {
+		$scope.showEditProfile = false;
+	}
 	
 	$scope.toggleSavePic = false;
 	$scope.addSummary = function() {
