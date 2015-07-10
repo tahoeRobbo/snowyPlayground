@@ -12,7 +12,7 @@
 		<h1 class="profile-userName">{{currentUser.userName}}</h1>
 		<br><img class="prof-pic" ng-src="{{currentUser.picData}}" id="profilePic" height="200px" width="200px" ng-click="newPic()" alt="Click to add a sweet profile pic!" ng-show="!toggleSavePic"/>
 		
-				<img src="" id="preview" height="200px" width="200px" ng-model="preview" ng-show="toggleSavePic"/>
+				<img class="prof-pic" src="" id="preview" height="200px" width="200px" ng-model="preview" ng-show="toggleSavePic"/>
 		
 		<br><span><button ng-click="addPic()" ng-show="toggleSavePic">Save Pic</button></span>
 		<p> summary: {{currentUser.summary}} </p>
