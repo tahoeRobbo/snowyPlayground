@@ -9,17 +9,17 @@
 
 	<!--DISPLAYS-->
 	<div class="profile display">
-		<h1 class="userName">{{currentUser.userName}}</h1>
-		<img ng-src="{{currentUser.picData}}" id="profilePic" height="200px" width="200px" ng-click="newPic()" alt="Click to add a sweet profile pic!" ng-show="!toggleSavePic"/>
+		<h1 class="profile-userName">{{currentUser.userName}}</h1>
+		<br><img class="prof-pic" ng-src="{{currentUser.picData}}" id="profilePic" height="200px" width="200px" ng-click="newPic()" alt="Click to add a sweet profile pic!" ng-show="!toggleSavePic"/>
 		
 				<img src="" id="preview" height="200px" width="200px" ng-model="preview" ng-show="toggleSavePic"/>
 		
-		<span><button ng-click="addPic()" ng-show="toggleSavePic">Save Pic</button></span>
+		<br><span><button ng-click="addPic()" ng-show="toggleSavePic">Save Pic</button></span>
 		<p> summary: {{currentUser.summary}} </p>
 	</div>
 
 <!--INPUTS-->
-	<form class="profile input">
+	<form class="profile input cf">
 		<input type="text" ng-model="user.summary" ng-submit="addSummary()" placeholder="summary"/>
 		<button ng-click="addSummary()"></button>
 		<input type="file" class="hidden"
@@ -27,8 +27,11 @@
 	</form>
 	
 
-	
-
 </div> <!--end content-->
+
+
+
+
+
 
 

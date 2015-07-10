@@ -171,7 +171,16 @@ nav ul li a:hover {
 	height: 50px;
 }
 
+	/*PROFILE*/
 
+.prof-pic {
+	float: left;
+	border-radius : 5px;10
+}
+
+.profile-userName {
+	float: left;
+}
 
 	
 
