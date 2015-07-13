@@ -3,11 +3,7 @@
 </div>
 
 <div class="content" ng-show="currentUser">
-
-
-	<h1> Hello, {{currentUser.firstName}} </h1>
-	
-	
+		
 	<div class="messages">
 		<div class="message" ng-repeat="(key, message) in messages">{{message.message}}
 		<span class="said-by"> said by <img alt="Placeholder" class="avatar" ng-src="{{message.userPic}}"> {{message.user}} </span>

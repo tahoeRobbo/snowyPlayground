@@ -17,6 +17,8 @@ app.service('ProfileService', function($rootScope, $firebaseObject, FBURL){
 		});
 	};// end this.addSummary
 		
+	
+			//CURRENT WORKING VERSION -- COMMENTING OUT FOR REF
 		this.addPic = function() {
 			console.log('service addPic HIT');
 			
@@ -38,6 +40,32 @@ app.service('ProfileService', function($rootScope, $firebaseObject, FBURL){
 				};
 			});//end userObj.$loaded()
 		}; // end this.addPic
+	
+/*	
+//		THIS addPic adds to pics/username - figuring out how to embed ref
+	this.addPic = function() {
+		console.log('service addPic HIT');
+		
+		var picRef = new Firebase(FBURL + '/pics/' + $rootScope.currentUser.userName);
+		var picObj = $firebaseObject(picRef);
+		
+		picObj.$loaded(function() {
+			var file = document.querySelector('input[type=file]').files[0];
+			var reader = new FileReader();
+			
+			if(file) {
+				console.log('there is a file within service addPic');
+			reader.readAsDataURL(file);
+			}	
+			
+			reader.onloadend = function() {
+				picObj.picData = reader.result;
+				picObj.$save();
+			};
+		});
+	}; //end this.addPic*/
+	
+	
 		
 	this.newPic = function() {
 			document.querySelector('input[type=file]').click();
