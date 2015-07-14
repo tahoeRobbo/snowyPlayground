@@ -97,6 +97,21 @@ app.service('ProfileService', function($rootScope, $firebaseObject, FBURL){
 			};
 		};
 	};//end this.previewPic*/
+	
+	this.addWhatDo = function(whatDo) {
+		var userRef = new Firebase(FBURL + '/users/' + $rootScope.currentUser.uid);
+		var userObj = $firebaseObject(userRef);
+		
+		userObj.$loaded(function() {
+			$rootScope.currentUser.whatDo = whatDo;
+			userObj.whatDo = whatDo;
+			userObj.$save();
+			console.log($rootScope.currentUser);
+			
+			console.log($rootScope.currentUser.whatDo + ' from Service');
+		});
+		
+	};// end this.addWhatDo
 
 	
 });//End Profile Service

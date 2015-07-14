@@ -10,6 +10,7 @@
 	<!--DISPLAYS-->
 	<div class="profile display">
 		<h1 class="profile-userName">{{currentUser.userName}}</h1>
+		<span>{{ currentUser.whatDo }}</span>
 		
 		
 		<h4 class="profile-edit" ng-click="editProfile()" ng-show="!showEditProfile">edit profile</h4>
@@ -26,10 +27,20 @@
 <!--INPUTS-->
 	<form class="profile input cf" >
 		<input type="text" ng-model="user.summary" ng-submit="addSummary()" placeholder="summary" ng-show="showEditProfile"/>
-		<button ng-click="addSummary()" ng-show="showEditProfile"></button>
+		<button ng-click="addSummary()" ng-show="showEditProfile">Save Summary</button>
 		<input type="file" class="hidden"
 		onchange="previewFile()"/>
 	</form>
+	
+	<select class="profile-whatDo" ng-show="showEditProfile" ng-model="whatDo">
+		<option value="">What do you like to do?</option>	
+		<option value="Skier">Ski</option>	
+		<option value="Snowboarder">Snowboard</option>	
+		<option value="Filmer">Film</option>	
+		<option value="Skier and Filmer">Ski and Film</option>	
+		<option value="Rider and Filmer">Ride and Film</option>	
+		<option value="Tripple Threat">I do it all, baby!</option>	
+	</select>
 	
 
 </div> <!--end content-->

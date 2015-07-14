@@ -10,7 +10,8 @@ app.controller('ProfileCtrl', function($scope, ProfileService) {
 	
 	$scope.doneEditProfile = function() {
 		$scope.showEditProfile = false;
-	}
+		ProfileService.addWhatDo($scope.whatDo);
+	};
 	
 	$scope.toggleSavePic = false;
 	$scope.addSummary = function() {
