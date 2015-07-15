@@ -30,7 +30,12 @@ app.config(function($routeProvider) {
 	})
 	.when('/meetup', {
 		templateUrl : 'app/meetup/meetupTmpl.html',
-		controller : 'MeetupCtrl'
+		controller : 'MeetupCtrl',
+		resolve : {
+			mtnsFromRouter : function(MeetupService) {
+				return MeetupService.getMountains();
+			}
+		}
 	})
 	.otherwise('/');
 		

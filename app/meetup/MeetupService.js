@@ -6,20 +6,22 @@ app.service('MeetupService', function(FBURL, $rootScope, $firebaseArray, $fireba
 	this.kirkwood;
 	
 	this.getMountains = function() {
+		var dfd = $q.defer();
 		var mtnRef = new Firebase(FBURL + 'mountains/');
 		var mountains = $firebaseArray(mtnRef);
 		var mountainsObj = {};
 		var mountainSnapshot;
-		console.log('11111', mountains);
 		
 		mountains.$loaded().then(function() {
 			angular.forEach(mountains, function(mountain) {
-				console.log(mountain);
-				if(mountain.name === 'heavenly') { mountainsObj.heavenly = mountain};
-				if(mountain.name === 'kirkwood') { mountainsObj.kirkwood = mountain};
-				console.log(mountainsObj, 'from mountains.loaded')
-			})
-		});
+				if(mountain.name === 'heavenly') { mountainsObj.heavenly = mountain;}
+				if(mountain.name === 'kirkwood') { mountainsObj.kirkwood = mountain;}
+	
+			})//end forEach loop inside $loaded
+			console.log(mountainsObj, " from before return inside $loaded")
+			dfd.resolve(mountainsObj);
+			return this.mountainsObj;
+		});// end AND THEN functions
 //for(var i = 0; i < mountains.length; i++) {
 //			if(mountains[i].name === 'heavenly') {
 //				mountainsObj.heavenly = mountains[i];
@@ -28,7 +30,8 @@ app.service('MeetupService', function(FBURL, $rootScope, $firebaseArray, $fireba
 //				mountainsObj.kirkwood = mountains[i];
 //			}
 //		}//end for loop this.getMountains
-			return this.mountainsObj;
+
+		return dfd.promise;
 	};//end this.getMountains
 	
 	
