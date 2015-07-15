@@ -15,6 +15,10 @@
 
 <div class="content" ng-init="getAndStoreMountains">
 	<div class="mountains">
-		<div class="mountain">{{heavenly}}</div>
+		<div class="mountain">{{heavenly.name}} 
+			<div class="zones" ng-repeat="zone in heavenly.zones">{{zone}}
+			</div>
+		</div>
+
 	</div>
 </div>
