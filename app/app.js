@@ -5,8 +5,8 @@ app.constant('FBURL', 'https://snowyplayground.firebaseio.com/');
 app.config(function($routeProvider) {
 	$routeProvider
 	.when('/', {
-		templateUrl : 'app/home/homeTmpl.html',
-		controller : 'HomeCtrl'
+		templateUrl : 'app/user/loginTmpl.html',
+		controller : 'RegistrationCtrl'
 	})
 	.when('/login', {
 		templateUrl : 'app/user/loginTmpl.html',
@@ -27,6 +27,10 @@ app.config(function($routeProvider) {
 	.when('/chat', {
 		templateUrl : 'app/chat/chatTmpl.html',
 		controller : 'ChatCtrl'
+	})
+	.when('/meetup', {
+		templateUrl : 'app/meetup/meetupTmpl.html',
+		controller : 'MeetupCtrl'
 	})
 	.otherwise('/');
 		
