@@ -14,11 +14,26 @@
 
 
 <div class="content" ng-init="getAndStoreMountains">
+
+	<!--HEAVENLY-->
 	<div class="mountains">
 		<div class="mountain">{{heavenly.name}} 
-			<div class="zones" ng-repeat="zone in heavenly.zones">{{zone}}
-			</div>
-		</div>
+		</div>  <!--Heav Title-->
+		<div class="zones" ng-repeat="zone in heavenly.zones">{{zone}}
+		<button class="btn checkin" ng-href="#/checkin/{{heavenly.$id}}/{{key}}">check in!</button>
+		</div>	<!--Heav Zones-->
 
-	</div>
-</div>
+	</div>  <!--end Heav-->
+	
+	<!--KIRKWOOD-->
+	<div class="mountains">
+		<div class="mountain">{{kirkwood.name}} 
+		</div>  <!--Kirky Title-->
+		<div class="zones" ng-repeat="(key, zone) in kirkwood.zones">{{zone}}
+		</div>	<!--Kirky Zones-->
+	</div>  <!--end Kirky-->
+	
+	
+	
+	
+</div>  <!--end content-->
