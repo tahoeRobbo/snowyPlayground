@@ -2,12 +2,19 @@
 	<h1>Please <a ng-href="#/register">register</a> or <a ng-href="#/login">login</a> to chat</h1>
 </div>
 
-<div class="content">
+<!--<div class="content" ng-init="getMountains()">
 	<div class="mountains">
 		<h1 class="mountain" ng-repeat="(key, mountain) in mountains">{{mountain.name}}
 			<div class="zones" ng-repeat="(key, zones) in mountain">
 				<div ng-repeat="(key, zone) in zones">	{{zone}}</div>
 			</div>
 		</h1>
+	</div>
+</div>-->
+
+
+<div class="content" ng-init="getAndStoreMountains">
+	<div class="mountains">
+		<div class="mountain">{{heavenly}}</div>
 	</div>
 </div>
