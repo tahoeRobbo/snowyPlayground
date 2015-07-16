@@ -1,0 +1,18 @@
+<div class="plz-login" ng-show="!currentUser">
+	<h1>Please <a ng-href="#/register">register</a> or <a ng-href="#/login">login</a> to check in!</h1>
+</div>
+
+<div class="noCheckIns" ng-show="!checkedInUsers">No one's active here right now.  Checkin and set the trend!</div>
+
+<section class="checkinsList cf">
+	<div ng-repeat="(key, checkedInUser) in checkedInUsers">
+	{{checkedInUser.firstName}} {{checkedInUser.lastName}} ({{checkedInUser.userName}}) as a {{checkedInUser.as}}
+	<div class="checkin-time">{{checkedInUser.firstName}} checked in at {{checkedInUser.checkedInAt | date : "h:mm a"}}</div>
+	<button class="checkout" ng-click="checkout(checkedInUser, key)">Checkout</button>
+	</div>
+	
+			<button>
+			<a class="btn checkin" ng-href="#/meetup">Check out the other zones</a>
+		</button>
+	
+</section>

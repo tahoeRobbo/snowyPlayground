@@ -39,13 +39,23 @@ app.config(function($routeProvider) {
 	})
 	.when('/checkin/:MOUNTAIN/:ZONE', {
 		templateUrl : 'app/meetup/checkinsTmpl.html',
-		controller : 'MeetupCtrl',
-		resolve : {
-			mtnsFromRouter : function(MeetupService) {
-				return MeetupService.getMountains();
-			}
-		}
+		controller : 'CheckinCtrl',
+//		resolve : {
+//			mtnsFromRouter : function(MeetupService) {
+//				return MeetupService.getMountains();
+//			}
+//		}
+	})	
+	.when('/checkin/:MOUNTAIN/:ZONE/checkinsList', {
+		templateUrl : 'app/meetup/checkinsListTmpl.html',
+		controller : 'CheckinCtrl',
+//		resolve : {
+//			mtnsFromRouter : function(MeetupService) {
+//				return MeetupService.getMountains();
+//			}
+//		}
 	})
+	
 	.otherwise('/');
 		
 });
