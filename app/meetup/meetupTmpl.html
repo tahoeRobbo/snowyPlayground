@@ -20,7 +20,11 @@
 		<div class="mountain">{{heavenly.name}} 
 		</div>  <!--Heav Title-->
 		<div class="zones" ng-repeat="zone in heavenly.zones">{{zone}}
-		<button class="btn checkin" ng-href="#/checkin/{{heavenly.$id}}/{{key}}">check in!</button>
+		
+		<button>
+			<a class="btn checkin" ng-href="#/checkin/{{heavenly.$id}}/{{zone}}">check in!</a>
+		</button>
+		
 		</div>	<!--Heav Zones-->
 
 	</div>  <!--end Heav-->

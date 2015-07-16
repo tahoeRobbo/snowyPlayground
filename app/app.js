@@ -35,6 +35,15 @@ app.config(function($routeProvider) {
 			mtnsFromRouter : function(MeetupService) {
 				return MeetupService.getMountains();
 			}
+		}//end reslove
+	})
+	.when('/checkin/:MOUNTAINS/:ZONES', {
+		templateUrl : 'app/meetup/checkinsTmpl.html',
+		controller : 'MeetupCtrl',
+		resolve : {
+			mtnsFromRouter : function(MeetupService) {
+				return MeetupService.getMountains();
+			}
 		}
 	})
 	.otherwise('/');
