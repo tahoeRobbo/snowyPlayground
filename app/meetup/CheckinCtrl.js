@@ -31,18 +31,13 @@ app.controller('CheckinCtrl', function($scope, MeetupService, $routeParams, FBUR
 		
 	};//end $scope.addCheckin
 	
-	$scope.checkout = function(checkedInUser, key) {
-		console.log(checkedInUser, ' checkin from CheckinCtrl');
-//		if(checkin.userName === $rootScope.currentUser.userName) {
-//			console.log(checkin.$id , ' checkin.$id from within if');
-//			var record = $firebaseArray(checkinRef);
-//			console.log(record, ' record from within the if')
-//			record.$remove(checkin.$id);
-//		}// end userName check
-		
-		var record = $firebaseArray(checkinRef);
-			console.log(record, ' record from within the if')
-			record.$remove(key);
+	$scope.checkout = function(checkin, key) {
+		console.log(checkin, ' checkin from CheckinCtrl');
+		if(checkin.userName === $rootScope.currentUser.userName) {
+			console.log(checkin.$id , ' checkin.$id from within if');
+		checkinsList.$remove(key);
+		}// end userName check
+
 		
 	};//end $scope.checkout
 		

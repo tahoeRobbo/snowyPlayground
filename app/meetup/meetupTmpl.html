@@ -37,6 +37,14 @@
 		<div class="mountain">{{kirkwood.name}} 
 		</div>  <!--Kirky Title-->
 		<div class="zones" ng-repeat="(key, zone) in kirkwood.zones">{{zone.name}}
+		
+				<button>
+			<a class="btn checkin" ng-href="#/checkin/{{heavenly.$id}}/{{key}}">check in!</a>
+		</button>		
+		<button>
+			<a class="btn checkin" ng-href="#/checkin/{{heavenly.$id}}/{{key}}/checkinsList">See who's here</a>
+		</button>
+		
 		</div>	<!--Kirky Zones-->
 	</div>  <!--end Kirky-->
 	
