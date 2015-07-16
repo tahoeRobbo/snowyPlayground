@@ -1,5 +1,5 @@
 <div class="plz-login" ng-show="!currentUser">
-	<h1>Please <a ng-href="#/register">register</a> or <a ng-href="#/login">login</a> to chat</h1>
+	<h1>Please <a ng-href="#/register">register</a> or <a ng-href="#/login">login</a> to link up!</h1>
 </div>
 
 <!--<div class="content" ng-init="getMountains()">
@@ -19,10 +19,10 @@
 	<div class="mountains">
 		<div class="mountain">{{heavenly.name}} 
 		</div>  <!--Heav Title-->
-		<div class="zones" ng-repeat="zone in heavenly.zones">{{zone}}
+		<div class="zones" ng-repeat="(key, zone) in heavenly.zones">{{zone.name}}
 		
 		<button>
-			<a class="btn checkin" ng-href="#/checkin/{{heavenly.$id}}/{{zone}}">check in!</a>
+			<a class="btn checkin" ng-href="#/checkin/{{heavenly.$id}}/{{key}}">check in!</a>
 		</button>
 		
 		</div>	<!--Heav Zones-->
@@ -33,7 +33,7 @@
 	<div class="mountains">
 		<div class="mountain">{{kirkwood.name}} 
 		</div>  <!--Kirky Title-->
-		<div class="zones" ng-repeat="(key, zone) in kirkwood.zones">{{zone}}
+		<div class="zones" ng-repeat="(key, zone) in kirkwood.zones">{{zone.name}}
 		</div>	<!--Kirky Zones-->
 	</div>  <!--end Kirky-->
 	

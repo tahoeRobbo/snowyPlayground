@@ -37,7 +37,7 @@ app.config(function($routeProvider) {
 			}
 		}//end reslove
 	})
-	.when('/checkin/:MOUNTAINS/:ZONES', {
+	.when('/checkin/:MOUNTAIN/:ZONE', {
 		templateUrl : 'app/meetup/checkinsTmpl.html',
 		controller : 'MeetupCtrl',
 		resolve : {
