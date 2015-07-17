@@ -21,12 +21,10 @@
 						<li ng-show="currentUser"><a ng-click="logout()">Logout</a></li>
 
 					</ul>
-				</div> <!--End class="nav-table-->
+				</div> <!--End class="nav-table" ngctrl-RegisCtrl-->
 			</nav>
 		</header>	
-				<div class="checkedInStatus" ng-show="currentUser.checkedIn" >checked in at {{currentUser.checkedInMountainHuman}} as a {{currentUser.checkedInAs}}
-				</div>
-				
+				<div class="checkedInStatus" ng-show="currentUser.checkedIn">You are checked into {{currentUser.checkedInZoneHuman}} as a {{currentUser.checkedInAs}}</div><span ng-controller="CheckoutCtrl" ng-click="checkout(currentUser.checkedInKey)">test</span>
 		<main class="content" ng-view>
 
 		</main>
@@ -60,6 +58,7 @@
 	<script src="app/meetup/MeetupCtrl.js"></script>
 	<script src="app/meetup/MeetupService.js"></script>
 	<script src="app/meetup/CheckinCtrl.js"></script>
+	<script src="app/meetup/CheckoutCtrl.js"></script>
 	
 </body>
 </html>

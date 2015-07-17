@@ -28,7 +28,7 @@ app.controller('CheckinCtrl', function($scope, MeetupService, $routeParams, FBUR
 	/////ADD CHECKIN////////
 	$scope.addCheckin = function() {
 		
-		if($rootScope.currentUser.checkedIn === false) {
+		if(!$rootScope.currentUser.checkedIn) {
 			
 					var checkinObj = $firebaseArray(checkinRef);
 
@@ -70,34 +70,36 @@ app.controller('CheckinCtrl', function($scope, MeetupService, $routeParams, FBUR
 
 	};//end $scope.addCheckin
 	
-	$scope.checkout = function(checkin) {
-		console.log(checkin, ' checkin from CheckinCtrl');
-			console.log(checkin.$id , ' checkin.$id from within if');
-			
-			console.log(checkinsList.$indexFor(checkin), " 111");
-			console.log(checkinsList.$indexFor($rootScope.currentUser.checkedInKey), " 222");
-		checkinsList.$remove(checkinsList.$indexFor(checkin));
-			//checkinsList.$remove(key);
-			
-					var userRef = new Firebase(FBURL + '/users/' + $rootScope.currentUser.uid);
-		var userObj = $firebaseObject(userRef);
-		
-		userObj.$loaded(function() {
-			userObj.checkedIn = false;
-			userObj.checkedInAs = null;
-			userObj.checkedInMountain = null;
-			userObj.checkedInZone = null;
-			userObj.checkedInKey = null;
-			userObj.$save();
-			$rootScope.currentUser = userObj;
-			console.log($rootScope.currentUser);
-			
-		});
-			
-	
-
-		
-	};//end $scope.checkout
+//	$scope.checkout = function(checkin) {
+//		console.log(checkin, ' checkin from CheckinCtrl');
+//			console.log(checkin.$id , ' checkin.$id from within if');
+//			
+//			console.log(checkinsList.$indexFor(checkin), " 111");
+//			console.log(checkinsList.$indexFor($rootScope.currentUser.checkedInKey), " 222");
+//		checkinsList.$remove(checkinsList.$indexFor(checkin));
+//			//checkinsList.$remove(key);
+//			
+//					var userRef = new Firebase(FBURL + '/users/' + $rootScope.currentUser.uid);
+//		var userObj = $firebaseObject(userRef);
+//		
+//		userObj.$loaded(function() {
+//			userObj.checkedIn = false;
+//			userObj.checkedInAs = null;
+//			userObj.checkedInMountain = null;
+//			userObj.checkedInMountainHuman = null;
+//			userObj.checkedInZone = null;
+//			userObj.checkedInZoneHuman = null;
+//			userObj.checkedInKey = null;
+//			userObj.$save();
+//			$rootScope.currentUser = userObj;
+//			console.log($rootScope.currentUser);
+//			
+//		});
+//			
+//	
+//
+//		
+//	};//end $scope.checkout
 		
 
 });//end MeetupCtrl
