@@ -19,7 +19,7 @@
 	<div class="mountains">
 		<div class="mountain">{{heavenly.name}} 
 		</div>  <!--Heav Title-->
-		<div class="zones" ng-repeat="(key, zone) in heavenly.zones">{{zone.name}}
+		<div class="zones" ng-repeat="(key,zone) in heavenly.zones">{{zone.name}}
 		
 		<button>
 			<a class="btn checkin" ng-href="#/checkin/{{heavenly.$id}}/{{key}}">check in!</a>
@@ -39,10 +39,10 @@
 		<div class="zones" ng-repeat="(key, zone) in kirkwood.zones">{{zone.name}}
 		
 				<button>
-			<a class="btn checkin" ng-href="#/checkin/{{heavenly.$id}}/{{key}}">check in!</a>
+			<a class="btn checkin" ng-href="#/checkin/{{kirkwood.$id}}/{{key}}">check in!</a>
 		</button>		
 		<button>
-			<a class="btn checkin" ng-href="#/checkin/{{heavenly.$id}}/{{key}}/checkinsList">See who's here</a>
+			<a class="btn checkin" ng-href="#/checkin/{{kirkwood.$id}}/{{key}}/checkinsList">See who's here</a>
 		</button>
 		
 		</div>	<!--Kirky Zones-->

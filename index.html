@@ -23,9 +23,12 @@
 					</ul>
 				</div> <!--End class="nav-table-->
 			</nav>
-		</header>		
+		</header>	
+				<div class="checkedInStatus" ng-show="currentUser.checkedIn" >checked in at {{currentUser.checkedInMountainHuman}} as a {{currentUser.checkedInAs}}
+				</div>
+				
 		<main class="content" ng-view>
-		
+
 		</main>
 	
 	</div> <!--End class="page"-->

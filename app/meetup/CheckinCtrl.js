@@ -10,10 +10,22 @@ app.controller('CheckinCtrl', function($scope, MeetupService, $routeParams, FBUR
 	
 	var checkinRef = new Firebase(FBURL + 'mountains/' + $scope.whichMountain + '/zones/' + $scope.whichZone + '/checkins');
 	
+	var mountainZoneRef = new Firebase(FBURL + 'mountains/' + $scope.whichMountain);
+	var mountainObject = $firebaseObject(mountainZoneRef);
+	
+	mountainObject.$loaded(function() {
+		$scope.currentMountain = mountainObject.name;
+		$scope.currentZone = mountainObject.zones[$scope.whichZone].name;
+	});
+	
+	console.log(mountainObject, " mO from CheckinCtrl")
+	
 	var checkinsList = $firebaseArray(checkinRef);
 	$scope.checkedInUsers = checkinsList;
 	console.log($scope.checkedInUsers)
 	
+	
+	/////ADD CHECKIN////////
 	$scope.addCheckin = function() {
 		
 		if($rootScope.currentUser.checkedIn === false) {
@@ -28,7 +40,8 @@ app.controller('CheckinCtrl', function($scope, MeetupService, $routeParams, FBUR
 			checkedInAt : Firebase.ServerValue.TIMESTAMP
 		};
 		
-		checkinObj.$add(myCheckinData).then(function() {
+		checkinObj.$add(myCheckinData).then(function(data) {
+			console.log(data.key(), " from .then of addCheckin")
 		var userRef = new Firebase(FBURL + '/users/' + $rootScope.currentUser.uid);
 		var userObj = $firebaseObject(userRef);
 		
@@ -37,6 +50,9 @@ app.controller('CheckinCtrl', function($scope, MeetupService, $routeParams, FBUR
 			userObj.checkedInAs = $scope.checkin.whatDo;
 			userObj.checkedInMountain = $scope.whichMountain;
 			userObj.checkedInZone = $scope.whichZone;
+			userObj.checkedInKey = data.key();
+			userObj.checkedInMountainHuman = $scope.currentMountain;
+			userObj.checkedInZoneHuman = $scope.currentZone;
 			userObj.$save();
 			$rootScope.currentUser = userObj;
 			console.log($rootScope.currentUser);
@@ -54,11 +70,14 @@ app.controller('CheckinCtrl', function($scope, MeetupService, $routeParams, FBUR
 
 	};//end $scope.addCheckin
 	
-	$scope.checkout = function(checkin, key) {
+	$scope.checkout = function(checkin) {
 		console.log(checkin, ' checkin from CheckinCtrl');
-		if(checkin.userName === $rootScope.currentUser.userName) {
 			console.log(checkin.$id , ' checkin.$id from within if');
-		checkinsList.$remove(key);
+			
+			console.log(checkinsList.$indexFor(checkin), " 111");
+			console.log(checkinsList.$indexFor($rootScope.currentUser.checkedInKey), " 222");
+		checkinsList.$remove(checkinsList.$indexFor(checkin));
+			//checkinsList.$remove(key);
 			
 					var userRef = new Firebase(FBURL + '/users/' + $rootScope.currentUser.uid);
 		var userObj = $firebaseObject(userRef);
@@ -68,13 +87,14 @@ app.controller('CheckinCtrl', function($scope, MeetupService, $routeParams, FBUR
 			userObj.checkedInAs = null;
 			userObj.checkedInMountain = null;
 			userObj.checkedInZone = null;
+			userObj.checkedInKey = null;
 			userObj.$save();
 			$rootScope.currentUser = userObj;
 			console.log($rootScope.currentUser);
 			
 		});
 			
-		}// end userName check
+	
 
 		
 	};//end $scope.checkout

@@ -8,7 +8,7 @@
 	<div ng-repeat="(key, checkedInUser) in checkedInUsers">
 	{{checkedInUser.firstName}} {{checkedInUser.lastName}} ({{checkedInUser.userName}}) as a {{checkedInUser.as}}
 	<div class="checkin-time">{{checkedInUser.firstName}} checked in at {{checkedInUser.checkedInAt | date : "h:mm a"}}</div>
-	<button class="checkout" ng-click="checkout(checkedInUser, key)">Checkout</button>
+				<button  class="checkout" ng-click="checkout(currentUser.checkedInKey)">Checkout</button>
 	</div>
 	
 			<button>
