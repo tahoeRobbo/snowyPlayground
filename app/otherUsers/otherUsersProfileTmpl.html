@@ -1,0 +1,50 @@
+<!--IF NO USER IS LOGGED IN-->
+<div class="content" ng-show="!otherUser">
+	<h1>Please <a ng-href="#/register">register</a> or <a ng-href="#/login">login</a> to view your profile</h1>
+</div>
+
+
+
+<div class="content" ng-show="otherUser">
+
+	<!--DISPLAYS-->
+	<div class="profile display">
+		<h1 class="profile-userName">{{otherUser.userName}}</h1>
+		<span>{{ otherUser.whatDo }}</span>
+		
+		
+		
+		<br><img class="prof-pic" ng-src="{{otherUser.picData}}" id="profilePic" height="200px" width="200px" />
+
+		
+
+		<p> summary: {{otherUser.summary}} </p>
+	</div>
+
+<!--INPUTS-->
+	<form class="profile input cf" >
+		<input type="text" ng-model="user.summary" ng-submit="addSummary()" placeholder="summary" ng-show="showEditProfile"/>
+		<button ng-click="addSummary()" ng-show="showEditProfile">Save Summary</button>
+		<input type="file" class="hidden"
+		onchange="previewFile()"/>
+	</form>
+	
+	<select class="profile-whatDo" ng-show="showEditProfile" ng-model="whatDo">
+		<option value="">What do you like to do?</option>	
+		<option value="Skier">Ski</option>	
+		<option value="Snowboarder">Snowboard</option>	
+		<option value="Filmer">Film</option>	
+		<option value="Skier and Filmer">Ski and Film</option>	
+		<option value="Rider and Filmer">Ride and Film</option>	
+		<option value="Triple Threat">I do it all, baby!</option>	
+	</select>
+	
+
+</div> <!--end content-->
+
+
+
+
+
+
+

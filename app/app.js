@@ -55,7 +55,14 @@ app.config(function($routeProvider) {
 //			}
 //		}
 	})
-	
+	.when('/otherUsers', {
+		templateUrl : 'app/otherUsers/otherUsersTmpl.html',
+		controller : 'OtherUsersCtrl'
+	})
+	.when('/otherUsers/:uId/profile', {
+		templateUrl : 'app/otherUsers/otherUsersProfileTmpl.html',
+		controller : 'OtherUsersProfileCtrl'
+	})
 	.otherwise('/');
 		
 });
