@@ -1,10 +1,10 @@
 var app = angular.module('snowyPlayground');
 
-app.controller('CheckinCtrl', function($scope, MeetupService, $routeParams, FBURL, $location, $rootScope, $firebaseArray){
+app.controller('CheckinCtrl', function($scope, MeetupService, $routeParams, FBURL, $location, $rootScope, $firebaseArray, $firebaseObject){
 	
 	
 	//**CHECKINS***********************************************
-	
+	$scope.checkedInError = false;
 	$scope.whichMountain = $routeParams.MOUNTAIN;
 	$scope.whichZone = $routeParams.ZONE;
 	
@@ -15,7 +15,10 @@ app.controller('CheckinCtrl', function($scope, MeetupService, $routeParams, FBUR
 	console.log($scope.checkedInUsers)
 	
 	$scope.addCheckin = function() {
-		var checkinObj = $firebaseArray(checkinRef);
+		
+		if($rootScope.currentUser.checkedIn === false) {
+			
+					var checkinObj = $firebaseArray(checkinRef);
 
 		var myCheckinData = {
 			firstName : $rootScope.currentUser.firstName,
@@ -26,9 +29,29 @@ app.controller('CheckinCtrl', function($scope, MeetupService, $routeParams, FBUR
 		};
 		
 		checkinObj.$add(myCheckinData).then(function() {
+		var userRef = new Firebase(FBURL + '/users/' + $rootScope.currentUser.uid);
+		var userObj = $firebaseObject(userRef);
+		
+		userObj.$loaded(function() {
+			userObj.checkedIn = true;
+			userObj.checkedInAs = $scope.checkin.whatDo;
+			userObj.checkedInMountain = $scope.whichMountain;
+			userObj.checkedInZone = $scope.whichZone;
+			userObj.$save();
+			$rootScope.currentUser = userObj;
+			console.log($rootScope.currentUser);
+			
 			$location.path('/checkin/' + $scope.whichMountain + '/' + $scope.whichZone + '/checkinsList');
+			
+
 		});
 		
+		});//end checkinObj$add and then
+			
+		}// end if $rS.cU.checkedIn check
+		
+		$scope.checkedInError = true;
+
 	};//end $scope.addCheckin
 	
 	$scope.checkout = function(checkin, key) {
@@ -36,6 +59,21 @@ app.controller('CheckinCtrl', function($scope, MeetupService, $routeParams, FBUR
 		if(checkin.userName === $rootScope.currentUser.userName) {
 			console.log(checkin.$id , ' checkin.$id from within if');
 		checkinsList.$remove(key);
+			
+					var userRef = new Firebase(FBURL + '/users/' + $rootScope.currentUser.uid);
+		var userObj = $firebaseObject(userRef);
+		
+		userObj.$loaded(function() {
+			userObj.checkedIn = false;
+			userObj.checkedInAs = null;
+			userObj.checkedInMountain = null;
+			userObj.checkedInZone = null;
+			userObj.$save();
+			$rootScope.currentUser = userObj;
+			console.log($rootScope.currentUser);
+			
+		});
+			
 		}// end userName check
 
 		
