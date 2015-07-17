@@ -2,6 +2,7 @@ var app = angular.module('snowyPlayground');
 
 app.controller('MeetupCtrl', function($scope, MeetupService, mtnsFromRouter, $routeParams, FBURL, $location, $rootScope, $firebaseArray){
 	
+	
 	$scope.test = "testing from the MeetupCtrl";	
 	console.log(mtnsFromRouter, ' mtnsFromRouter logged from controller');
 	$scope.mountains = mtnsFromRouter;

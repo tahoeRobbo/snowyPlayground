@@ -41,8 +41,10 @@ app.controller('CheckinCtrl', function($scope, MeetupService, $routeParams, FBUR
 		};
 		
 		checkinObj.$add(myCheckinData).then(function(data) {
-			console.log(data.key(), " from .then of addCheckin")
-		var userRef = new Firebase(FBURL + '/users/' + $rootScope.currentUser.uid);
+			var howMany = checkinsList.length;
+			console.log(howMany, ' howMany from checkinCtrl');
+
+		var userRef = new Firebase(FBURL + 'users/' + $rootScope.currentUser.uid);
 		var userObj = $firebaseObject(userRef);
 		
 		userObj.$loaded(function() {

@@ -24,7 +24,7 @@
 				</div> <!--End class="nav-table" ngctrl-RegisCtrl-->
 			</nav>
 		</header>	
-				<div class="checkedInStatus" ng-show="currentUser.checkedIn">You are checked into {{currentUser.checkedInZoneHuman}} as a {{currentUser.checkedInAs}}</div><span ng-controller="CheckoutCtrl" ng-click="checkout(currentUser.checkedInKey)">test</span>
+				<div class="checkedInStatus" ng-show="currentUser.checkedIn">You are checked into {{currentUser.checkedInZoneHuman}} as a {{currentUser.checkedInAs}}<span ng-controller="CheckoutCtrl" ng-click="checkout(currentUser.checkedInKey)"> checkout</span></div>
 		<main class="content" ng-view>
 
 		</main>
@@ -59,6 +59,7 @@
 	<script src="app/meetup/MeetupService.js"></script>
 	<script src="app/meetup/CheckinCtrl.js"></script>
 	<script src="app/meetup/CheckoutCtrl.js"></script>
+	<script src="app/meetup/CountCtrl.js"></script>
 	
 </body>
 </html>
