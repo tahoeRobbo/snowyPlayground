@@ -4,13 +4,11 @@ app.controller('CountCtrl', function($scope, MeetupService, $routeParams, FBURL,
 	
 	$scope.howManyActive = function(mountain, zoneKey) {
 		var checkinRef = new Firebase(FBURL + 'mountains/' + mountain + '/zones/' + zoneKey + '/checkins');
-	
-		console.log(mountain, zoneKey);
+
 		var checkinsList = $firebaseArray(checkinRef);
 	 checkinsList.$loaded(function() {
 
 		$scope.checkedInNumber = checkinsList.length;
-		console.log(checkinsList.length);
 
 		 checkinsList.$watch(function(event) {
 			 if(event) {

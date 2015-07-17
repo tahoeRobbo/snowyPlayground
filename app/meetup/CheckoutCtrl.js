@@ -12,11 +12,6 @@ app.controller('CheckoutCtrl', function($scope, MeetupService, $routeParams, FBU
 			
 		checkinsList.$loaded(function(){
 			
-			console.log(checkin, ' checkin from CheckinCtrl');
-			console.log(checkin.$id , ' checkin.$id from within if');
-			
-			console.log(checkinsList.$indexFor(checkin), " 111");
-			console.log(checkinsList.$indexFor($rootScope.currentUser.checkedInKey), " 222");
 		checkinsList.$remove(checkinsList.$indexFor(checkin)).then(function() {
 			
 								var userRef = new Firebase(FBURL + '/users/' + $rootScope.currentUser.uid);

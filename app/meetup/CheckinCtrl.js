@@ -18,12 +18,10 @@ app.controller('CheckinCtrl', function($scope, MeetupService, $routeParams, FBUR
 		$scope.currentZone = mountainObject.zones[$scope.whichZone].name;
 	});
 	
-	console.log(mountainObject, " mO from CheckinCtrl")
 	
 	var checkinsList = $firebaseArray(checkinRef);
 	$scope.checkedInUsers = checkinsList;
-	console.log($scope.checkedInUsers)
-	
+
 	
 	/////ADD CHECKIN////////
 	$scope.addCheckin = function() {
@@ -42,7 +40,6 @@ app.controller('CheckinCtrl', function($scope, MeetupService, $routeParams, FBUR
 		
 		checkinObj.$add(myCheckinData).then(function(data) {
 			var howMany = checkinsList.length;
-			console.log(howMany, ' howMany from checkinCtrl');
 
 		var userRef = new Firebase(FBURL + 'users/' + $rootScope.currentUser.uid);
 		var userObj = $firebaseObject(userRef);
