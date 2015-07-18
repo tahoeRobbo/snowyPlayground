@@ -20,6 +20,8 @@
 
 		<p> summary: {{otherUser.summary}} </p>
 	</div>
+	
+	<div class="otherUserCheckedInStatus" ng-show="otherUser.checkedIn">currently checked in as a  {{otherUser.checkedInAs}} at <a ng-href="#/checkin/{{otherUser.checkedInMountain}}/{{otherUser.checkedInZone}}">{{otherUser.checkedInZoneHuman}}</a></div>
 
 <!--INPUTS-->
 	<form class="profile input cf" >
