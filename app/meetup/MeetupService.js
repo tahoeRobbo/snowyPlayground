@@ -14,8 +14,8 @@ app.service('MeetupService', function(FBURL, $rootScope, $firebaseArray, $fireba
 		
 		mountains.$loaded().then(function() {
 			angular.forEach(mountains, function(mountain) {
-				if(mountain.name === 'heavenly') { mountainsObj.heavenly = mountain;}
-				if(mountain.name === 'kirkwood') { mountainsObj.kirkwood = mountain;}
+				if(mountain.name === 'Heavenly') { mountainsObj.heavenly = mountain;}
+				if(mountain.name === 'Kirkwood') { mountainsObj.kirkwood = mountain;}
 	
 			})//end forEach loop inside $loaded
 			console.log(mountainsObj, " from before return inside $loaded")
