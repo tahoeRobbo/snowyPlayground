@@ -25,7 +25,7 @@
 				</div> <!--End class="nav-table" ngctrl-RegisCtrl-->
 			</nav>
 		</header>	
-				<div class="checkedInStatus" ng-show="currentUser.checkedIn">You are checked into {{currentUser.checkedInZoneHuman}} as a {{currentUser.checkedInAs}}<span ng-controller="CheckoutCtrl" ng-click="checkout(currentUser.checkedInKey)"> checkout</span></div>
+				<div class="checkedInStatus" ng-show="currentUser.checkedIn">You are checked into {{currentUser.checkedInZoneHuman}} as a {{currentUser.checkedInAs}}<span class="checkout" ng-controller="CheckoutCtrl" ng-click="checkout(currentUser.checkedInKey)"> checkout</span></div>
 		<main class="content" ng-view>
 
 		</main>

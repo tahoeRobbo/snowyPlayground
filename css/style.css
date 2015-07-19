@@ -191,15 +191,16 @@ nav ul li a:hover {
 
 .mountain {
 	font-size: 1.8rem;
-	color : aliceblue
+	color : aliceblue;
 }
 
 .zones {
 	font-size: 1.4rem;
 }
 	
-
-
+.checkout:hover {
+	cursor : pointer; cursor : hand;
+}
 
 
 

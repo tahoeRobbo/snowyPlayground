@@ -23,8 +23,11 @@
 		<option value="Ski Ride and Film">I do it all, baby!</option>	
 	</select>
 		
+		<input type="text" class="doinWhat" ng-show="checkin.whatDo" ng-model="checkin.doinWhat" placeholder="anything in mind?">
 		
 		<button class="checkinBtn" ng-click="addCheckin()">check in!</button>
+		
+		
 	</form>
 	
 			<div class="checkedInError" ng-show="checkedInError">You can only be checked in to one zone at a time.  Please checkout first</div>
