@@ -14,6 +14,26 @@
 	<br>
 	</div>
 	
+	<form name="checkinForm" novalidate>
+			<select class="profile-whatDo" ng-model="checkin.whatDo">
+		<option value="">What are you doing today?</option>	
+		<option value="Skier">Ski</option>	
+		<option value="Snowboarder">Snowboard</option>	
+		<option value="Filmer">Film</option>	
+		<option value="Skier and Filmer">Ski and Film</option>	
+		<option value="Rider and Filmer">Ride and Film</option>	
+		<option value="Ski Ride and Film">I do it all, baby!</option>	
+	</select>
+		
+		<input type="text" class="doinWhat" ng-show="checkin.whatDo" ng-model="checkin.doinWhat" placeholder="anything in mind?">
+		
+		<button class="checkinBtn" ng-click="addCheckin()">check in!</button>
+		
+		
+	</form>
+	
+			<div class="checkedInError" ng-show="checkedInError">You can only be checked in to one zone at a time.  Please checkout first</div>
+	
 			<button>
 			<a class="btn checkin" ng-href="#/meetup">Check out the other zones</a>
 		</button>

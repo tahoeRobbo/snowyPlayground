@@ -29,6 +29,8 @@ app.controller('CheckinCtrl', function($scope, MeetupService, $routeParams, FBUR
 		if(!$rootScope.currentUser.checkedIn) {
 			
 					var checkinObj = $firebaseArray(checkinRef);
+			
+			if(!$scope.checkin.doinWhat){$scope.checkin.doinWhat = null;}
 
 		var myCheckinData = {
 			firstName : $rootScope.currentUser.firstName,

@@ -19,13 +19,13 @@
 	<div class="mountains">
 		<div class="mountain">{{heavenly.name}} 
 		</div>  <!--Heav Title-->
-		<div class="zones" ng-repeat="(key, zone) in heavenly.zones">{{zone.name}}
+		<div class="zones" ng-repeat="(key, zone) in heavenly.zones">{{zone.name}} <span ng-controller="CountCtrl" ng-init="howManyActive(heavenly.$id, key)" ng-show="checkedInNumber">  ({{checkedInNumber}}) </span>
 		
 		<button ng-show="!currentUser.checkedIn">
 			<a class="btn checkin" ng-href="#/checkin/{{heavenly.$id}}/{{key}}">check in!</a>
 		</button>		
 		<button>
-			<a class="btn checkin" ng-href="#/checkin/{{heavenly.$id}}/{{key}}/checkinsList">See who's here<span ng-controller="CountCtrl" ng-init="howManyActive(heavenly.$id, key)">  ({{checkedInNumber}}) </span></a>
+			<a class="btn checkin" ng-href="#/checkin/{{heavenly.$id}}/{{key}}/checkinsList">See who's here</a>
 		</button>
 		
 		</div>	<!--Heav Zones-->
@@ -36,13 +36,13 @@
 	<div class="mountains">
 		<div class="mountain">{{kirkwood.name}} 
 		</div>  <!--Kirky Title-->
-		<div class="zones" ng-repeat="(key, zone) in kirkwood.zones">{{zone.name}}
+		<div class="zones" ng-repeat="(key, zone) in kirkwood.zones">{{zone.name}} <span ng-controller="CountCtrl" ng-init="howManyActive(kirkwood.$id, key)" ng-show="checkedInNumber">  ({{checkedInNumber}}) </span>
 		
 				<button ng-show="!currentUser.checkedIn">
 			<a class="btn checkin" ng-href="#/checkin/{{kirkwood.$id}}/{{key}}">check in!</a>
 		</button>		
-		<button>
-			<a class="btn checkin" ng-href="#/checkin/{{kirkwood.$id}}/{{key}}/checkinsList">See who's here</a><span ng-controller="CountCtrl" ng-init="howManyActive(kirkwood.$id, key)">  ({{checkedInNumber}}) </span>
+		<button  ng-show="checkedInNumber">
+			<a class="btn checkin" ng-href="#/checkin/{{kirkwood.$id}}/{{key}}/checkinsList" >See who's here</a>
 		</button>
 		
 		</div>	<!--Kirky Zones-->
