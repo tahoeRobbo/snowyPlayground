@@ -15,3 +15,15 @@ app.controller('OtherUsersCtrl', function($scope, $firebaseArray, $location, FBU
 	
 	
 });//end OtherUsersCtrl
+
+//
+//		if(count > 0) { return; }
+//		
+//		if(this.remainingGuesses > 0) {
+//			return (this.remainingGuesses = remGuesses -=1);
+//		}
+//		if(this.remainingGuesses === 0) {
+//			this.playAgain = true;
+//			this.answerArray = "Uh oh... the answer was " + this.word + "...";
+//			return ;
+//		}

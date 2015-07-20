@@ -5,7 +5,7 @@
 <div class="noCheckIns" ng-show="!checkedInUsers">No one's active here right now.  Checkin and set the trend!</div>
 
 <section class="checkinsList cf">
-	<div ng-repeat="(key, checkedInUser) in checkedInUsers">
+	<div class="userInList" ng-repeat="(key, checkedInUser) in checkedInUsers">
 	<span class="userNameLink"><a href="" ng-href="#/otherUsers/{{checkedInUser.id}}/profile">
 	{{checkedInUser.firstName}} {{checkedInUser.lastName}}	
 	</a></span>
@@ -15,10 +15,10 @@
 	<span class="checkinSpecific" ng-show="checkedInUser.asSpecific">({{checkedInUser.asSpecific}})</span>
 	
 	<div class="checkin-time">checked in at {{checkedInUser.checkedInAt | date : "h:mm a"}}</div>
-	<br>
+
 	</div>
 	
-	<form name="checkinForm" novalidate>
+	<form name="checkinForm" novalidate ng-show="!currentUser.checkedIn">
 			<select class="profile-whatDo" ng-model="checkin.whatDo">
 		<option value="">What are you doing today?</option>	
 		<option value="Skier">Ski</option>	
@@ -31,13 +31,14 @@
 		
 		<input type="text" class="doinWhat" ng-show="checkin.whatDo" ng-model="checkin.doinWhat" placeholder="anything in mind?">
 		
-		<button class="checkinBtn" ng-click="addCheckin()">check in!</button>
+		<button class="checkinBtn" ng-click="addCheckin()" >check in!</button>
 		
 		
+					<div class="checkedInError" ng-show="checkedInError">You can only be checked in to one zone at a time.  Please checkout first</div>
+	
 	</form>
 	
-			<div class="checkedInError" ng-show="checkedInError">You can only be checked in to one zone at a time.  Please checkout first</div>
-	
+
 			<button>
 			<a class="btn checkin" ng-href="#/meetup">Check out the other zones</a>
 		</button>
