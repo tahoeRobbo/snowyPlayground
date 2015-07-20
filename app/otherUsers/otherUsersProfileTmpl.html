@@ -1,11 +1,11 @@
 <!--IF NO USER IS LOGGED IN-->
-<div class="content" ng-show="!otherUser">
-	<h1>Please <a ng-href="#/register">register</a> or <a ng-href="#/login">login</a> to view your profile</h1>
+<div class="content" ng-show="!currentUser">
+	<h1>Please <a ng-href="#/register">register</a> or <a ng-href="#/login">login</a> to view a profile</h1>
 </div>
 
 
 
-<div class="content" ng-show="otherUser">
+<div class="content" ng-show="currentUser && otherUser">
 
 	<!--DISPLAYS-->
 	<div class="profile display">
@@ -21,7 +21,7 @@
 		<p> summary: {{otherUser.summary}} </p>
 	</div>
 	
-	<div class="otherUserCheckedInStatus" ng-show="otherUser.checkedIn">currently checked in as a  {{otherUser.checkedInAs}} ({{otherUser.checkedInAsSpecific}}) at <a ng-href="#/checkin/{{otherUser.checkedInMountain}}/{{otherUser.checkedInZone}}">{{otherUser.checkedInZoneHuman}}</a></div>
+	<div class="otherUserCheckedInStatus" ng-show="otherUser.checkedIn">currently checked in as a  {{otherUser.checkedInAs}} <span ng-show="otehrUser.checkedInAsSpecific">({{otherUser.checkedInAsSpecific}})</span> at <a ng-href="#/checkin/{{otherUser.checkedInMountain}}/{{otherUser.checkedInZone}}/checkinsList">{{otherUser.checkedInZoneHuman}}</a></div>
 
 <!--INPUTS-->
 	<form class="profile input cf" >

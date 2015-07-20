@@ -38,7 +38,10 @@ app.controller('CheckinCtrl', function($scope, MeetupService, $routeParams, FBUR
 			userName : $rootScope.currentUser.userName,
 			as : $scope.checkin.whatDo,
 			asSpecific : $scope.checkin.doinWhat,
-			checkedInAt : Firebase.ServerValue.TIMESTAMP
+			checkedInAt : Firebase.ServerValue.TIMESTAMP,
+			id : $rootScope.currentUser.uid,
+			mountain : $scope.whichMountain,
+			zone : $scope.whichZone
 		};
 		
 		checkinObj.$add(myCheckinData).then(function(data) {

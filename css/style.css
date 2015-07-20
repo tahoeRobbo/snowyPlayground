@@ -158,6 +158,20 @@ nav ul li a:hover {
 	border-radius : 10px;
 }
 
+	/*CHECKED IN STATUS LINE*/
+
+.checkedInStatus {
+	margin: 0 auto;
+	background-color : rgba(221, 221, 221, 0.65);
+	text-align: center;
+	
+}
+
+.checkout:hover {
+	cursor : pointer; cursor : hand;
+	color: #E80246;
+}
+
 	/*CHAT*/
 
 .avatar {
@@ -197,10 +211,7 @@ nav ul li a:hover {
 .zones {
 	font-size: 1.4rem;
 }
-	
-.checkout:hover {
-	cursor : pointer; cursor : hand;
-}
+
 
 	/*OtherUsers*/
 

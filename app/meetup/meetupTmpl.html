@@ -1,5 +1,6 @@
-<div class="plz-login" ng-show="!currentUser">
-	<h1>Please <a ng-href="#/register">register</a> or <a ng-href="#/login">login</a> to link up!</h1>
+<!--IF NO USER IS LOGGED IN-->
+<div class="content" ng-show="!currentUser">
+	<h1>Please <a ng-href="#/register">register</a> or <a ng-href="#/login">login</a> to meet-up</h1>
 </div>
 
 <!--<div class="content" ng-init="getMountains()">
@@ -13,7 +14,7 @@
 </div>-->
 
 
-<div class="content" ng-init="getAndStoreMountains">
+<div class="content" ng-init="getAndStoreMountains" ng-show="currentUser">
 
 	<!--HEAVENLY-->
 	<div class="mountains">

@@ -1,4 +1,10 @@
-<div class="usersList">
+<!--IF NO USER IS LOGGED IN-->
+<div class="content" ng-show="!currentUser">
+	<h1>Please <a ng-href="#/register">register</a> or <a ng-href="#/login">login</a> to view a profile</h1>
+</div>
+
+
+<div class="usersList" ng-show="currentUser">
 	<div class="users">
 		<ul ng-repeat="user in users">
 			<li><a ng-href="#/otherUsers/{{user.$id}}/profile"><span id="checkedInSymbol" ng-show="user.checkedIn">*..*</span>{{user.firstName}} {{user.lastName}}  <span class="userName" ng-show="user.userName">({{user.userName}})</span> </a></li>

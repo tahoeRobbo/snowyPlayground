@@ -25,10 +25,10 @@
 				</div> <!--End class="nav-table" ngctrl-RegisCtrl-->
 			</nav>
 		</header>	
-				<div class="checkedInStatus" ng-show="currentUser.checkedIn">You are checked into {{currentUser.checkedInZoneHuman}} as a {{currentUser.checkedInAs}}<span class="checkout" ng-controller="CheckoutCtrl" ng-click="checkout(currentUser.checkedInKey)"> checkout</span></div>
-		<main class="content" ng-view>
 
-		</main>
+				<div class="checkedInStatus" ng-show="currentUser.checkedIn">You are checked into  <span class="checkedInZone"><a  ng-href="#/checkin/{{currentUser.checkedInMountain}}/{{currentUser.checkedInZone}}/checkinsList">{{currentUser.checkedInZoneHuman}} </a></span>as a {{currentUser.checkedInAs}}<span class="checkout" ng-controller="CheckoutCtrl" ng-click="checkout(currentUser.checkedInKey)"> (checkout)</span></div>
+				
+		<main class="content" ng-view></main>
 	
 	</div> <!--End class="page"-->
 
