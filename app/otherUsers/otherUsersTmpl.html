@@ -6,8 +6,8 @@
 
 <div class="usersList" ng-show="currentUser">
 	<div>
-		<ul ng-repeat="user in users">
-			<li class="users"><a class="usersA" ng-href="#/otherUsers/{{user.$id}}/profile"><span id="checkedInSymbol" ng-show="user.checkedIn">*..*</span>{{user.firstName}} {{user.lastName}}  <span class="userName" ng-show="user.userName">({{user.userName}})</span> </a></li>
+		<ul ng-repeat="user in users | orderBy: '-checkedIn'">
+			<li class="users"><a class="usersA" ng-href="#/otherUsers/{{user.$id}}/profile"><span id="checkedInSymbol" ng-model="currentlyCheckedIn" ng-show="user.checkedIn">*..*</span>{{user.firstName}} {{user.lastName}}  <span class="userName" ng-show="user.userName">({{user.userName}})</span> </a></li>
 		</ul>
 	</div>
 </div>
