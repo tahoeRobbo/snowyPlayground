@@ -31,6 +31,7 @@ app.service('RegistrationService', function($rootScope, $firebaseObject, $fireba
 			firebaseUsers.name = user.firstName + " " + user.lastName;
 			firebaseUsers.email = user.email;
 			firebaseUsers.userName = user.userName;
+			firebaseUsers.checkedIn = false;
 			
 			firebaseUsers.$save();
 			
