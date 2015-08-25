@@ -21,7 +21,7 @@
 		<p> summary: {{otherUser.summary}} </p>
 	</div>
 	<br>
-	<div class="otherUserCheckedInStatus" ng-show="otherUser.checkedIn">currently checked in as a  {{otherUser.checkedInAs}} <span ng-show="otehrUser.checkedInAsSpecific">({{otherUser.checkedInAsSpecific}})</span> at <a ng-href="#/checkin/{{otherUser.checkedInMountain}}/{{otherUser.checkedInZone}}/checkinsList">{{otherUser.checkedInZoneHuman}}</a></div>
+	<div class="otherUserCheckedInStatus" ng-show="otherUser.checkedIn">currently checked in as a  {{otherUser.checkedInAs}} <span ng-show="otehrUser.checkedInAsSpecific">({{otherUser.checkedInAsSpecific}})</span> at <a class="checkedInZone" ng-href="#/checkin/{{otherUser.checkedInMountain}}/{{otherUser.checkedInZone}}/checkinsList">{{otherUser.checkedInZoneHuman}}</a></div>
 
 <!--INPUTS-->
 	<form class="profile input cf" >
