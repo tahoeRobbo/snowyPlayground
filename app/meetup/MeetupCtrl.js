@@ -6,8 +6,8 @@ app.controller('MeetupCtrl', function($scope, MeetupService, mtnsFromRouter, $ro
 	$scope.test = "testing from the MeetupCtrl";	
 
 	$scope.mountains = mtnsFromRouter;
-	$scope.heavenly = mtnsFromRouter.heavenly;
-	$scope.kirkwood = mtnsFromRouter.kirkwood;
+	$scope.Heavenly = mtnsFromRouter.Heavenly;
+	$scope.Kirkwood = mtnsFromRouter.Kirkwood;
 	
 
 	

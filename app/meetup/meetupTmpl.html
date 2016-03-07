@@ -18,15 +18,15 @@
 
 	<!--HEAVENLY-->
 	<div class="mountains">
-		<div class="mountain">{{heavenly.name}} 
+		<div class="mountain">{{Heavenly.name}} 
 		</div>  <!--Heav Title-->
-		<div class="zones" ng-repeat="(key, zone) in heavenly.zones">{{zone.name}} <span ng-controller="CountCtrl" ng-init="howManyActive(heavenly.$id, key)" ng-show="checkedInNumber">  ({{checkedInNumber}}) </span>
+		<div class="zones" ng-repeat="(key, zone) in Heavenly.zones">{{zone.name}} <span ng-controller="CountCtrl" ng-init="howManyActive(Heavenly.$id, key)" ng-show="checkedInNumber">  ({{checkedInNumber}}) </span>
 		
 		<button ng-show="!currentUser.checkedIn">
-			<a class="btn checkin" ng-href="#/checkin/{{heavenly.$id}}/{{key}}">check in!</a>
+			<a class="btn checkin" ng-href="#/checkin/{{Heavenly.$id}}/{{key}}">check in!</a>
 		</button>		
 		<button>
-			<a class="btn checkin" ng-href="#/checkin/{{heavenly.$id}}/{{key}}/checkinsList">See who's here</a>
+			<a class="btn checkin" ng-href="#/checkin/{{Heavenly.$id}}/{{key}}/checkinsList">See who's here</a>
 		</button>
 		
 		</div>	<!--Heav Zones-->
@@ -35,15 +35,15 @@
 	
 	<!--KIRKWOOD-->
 	<div class="mountains">
-		<div class="mountain">{{kirkwood.name}} 
+		<div class="mountain">{{Kirkwood.name}} 
 		</div>  <!--Kirky Title-->
-		<div class="zones" ng-repeat="(key, zone) in kirkwood.zones">{{zone.name}} <span ng-controller="CountCtrl" ng-init="howManyActive(kirkwood.$id, key)" ng-show="checkedInNumber">  ({{checkedInNumber}}) </span>
+		<div class="zones" ng-repeat="(key, zone) in Kirkwood.zones">{{zone.name}} <span ng-controller="CountCtrl" ng-init="howManyActive(Kirkwood.$id, key)" ng-show="checkedInNumber">  ({{checkedInNumber}}) </span>
 		
 				<button ng-show="!currentUser.checkedIn">
-			<a class="btn checkin" ng-href="#/checkin/{{kirkwood.$id}}/{{key}}">check in!</a>
+			<a class="btn checkin" ng-href="#/checkin/{{Kirkwood.$id}}/{{key}}">check in!</a>
 		</button>		
 		<button>
-			<a class="btn checkin" ng-href="#/checkin/{{kirkwood.$id}}/{{key}}/checkinsList" >See who's here</a>
+			<a class="btn checkin" ng-href="#/checkin/{{Kirkwood.$id}}/{{key}}/checkinsList" >See who's here</a>
 		</button>
 		
 		</div>	<!--Kirky Zones-->
