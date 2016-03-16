@@ -1,7 +1,7 @@
 
 (function(){
   angular.module('snowyPlayground')
-    .factory('MeetupService',['FBURL', '$rootScope', '$firebaseArray', '$firebaseObject', '$q', function(FBURL, $rootScope, $firebaseArray, $firebaseObject, $q) {
+    .factory('MeetupService', ['FBURL', '$rootScope', '$firebaseArray', '$firebaseObject', '$q', function(FBURL, $rootScope, $firebaseArray, $firebaseObject, $q) {
 
       return {
         getMountains : getMountains
@@ -14,21 +14,21 @@
             mountainsObj = {};
 
         mountains.$loaded().then(function(){
+          //assign each mountain to mountainsObj with names as keys
           mountains.forEach(function(mountain){
             mountainsObj[mountain.name] = mountain;
           });
 
           dfd.resolve(mountainsObj);
           return mountainsObj;
+          
         });
 
         return dfd.promise;
 
       }
-
-
-
-    }]);
+      
+    }]);  //end MeetupService
   })();
 
 ////Service version

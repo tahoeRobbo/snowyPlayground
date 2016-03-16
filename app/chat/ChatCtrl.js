@@ -1,20 +1,20 @@
-var app = angular.module('snowyPlayground');
+angular.module('snowyPlayground')
 
-app.controller('ChatCtrl', function($scope, ChatService, FBURL, $firebaseArray) {
-	
-	var ref = new Firebase(FBURL + '/messages');
-	var fbMessages = $firebaseArray(ref);
-	$scope.messages=fbMessages;
-	
-	console.log($scope.messages);
-	$scope.addMessage = function() {
-		ChatService.addMessage($scope.message)
-		.then(function() {
-			$scope.message = '';
-		});//end 
-	};//end $scope.addMessage
-	
+  .controller('ChatCtrl',['$scope', 'ChatFactory', function($scope, ChatFactory ) {
+	 
+    function getMessages(){
+       return ChatFactory.getMessages();
+    }
+    
+    $scope.messages = getMessages();
+
+    $scope.addMessage = function() {
+      ChatFactory.addMessage($scope.message)
+      .then(function() {
+        $scope.message = '';
+      });//end .then
+    };//end $scope.addMessage
 
 
-});//end ChatCtrl
+}]);//end ChatCtrl
 
