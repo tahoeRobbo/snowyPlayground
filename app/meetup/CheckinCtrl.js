@@ -1,6 +1,10 @@
-var app = angular.module('snowyPlayground');
+angular.module('snowyPlayground')
+  .controller('CheckinCtrl', CheckinCtrl)
 
-app.controller('CheckinCtrl', function($scope, MeetupService, $routeParams, FBURL, $location, $rootScope, $firebaseArray, $firebaseObject, CheckFactory){
+
+CheckinCtrl.$inject = ['$scope', 'MeetupService', '$routeParams', 'FBURL', '$location', '$rootScope', '$firebaseArray', '$firebaseObject', 'CheckFactory'];
+
+function CheckinCtrl($scope, MeetupService, $routeParams, FBURL, $location, $rootScope, $firebaseArray, $firebaseObject, CheckFactory){
 	
 	
 	//**CHECKINS***********************************************
@@ -116,4 +120,4 @@ app.controller('CheckinCtrl', function($scope, MeetupService, $routeParams, FBUR
 //	};//end $scope.checkout
 		
 
-});//end MeetupCtrl
+}//end MeetupCtrl

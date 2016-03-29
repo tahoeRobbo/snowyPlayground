@@ -1,5 +1,10 @@
 angular.module('snowyPlayground')
-  .factory('CheckFactory', ['FBURL', 'MeetupService', '$routeParams', '$location', '$rootScope', '$firebaseArray', '$firebaseObject', function CheckFactory(FBURL, MeetupService, $routeParams, $location, $rootScope, $firebaseArray, $firebaseObject){
+  .factory('CheckFactory', CheckFactory);
+
+
+CheckFactory.$inject = ['FBURL', 'MeetupService', '$routeParams', '$location', '$rootScope', '$firebaseArray', '$firebaseObject'];
+
+function CheckFactory(FBURL, MeetupService, $routeParams, $location, $rootScope, $firebaseArray, $firebaseObject){
 
     var mountain = $routeParams.MOUNTAIN,
         zone = $routeParams.ZONE,
@@ -68,7 +73,7 @@ angular.module('snowyPlayground')
     }//end addCheckin                 
                           
 
-  }]);//end ChatFactory
+  }//end ChatFactory
 
 
 
