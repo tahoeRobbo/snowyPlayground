@@ -1,7 +1,12 @@
 
 (function(){
   angular.module('snowyPlayground')
-    .factory('MeetupService', ['FBURL', '$rootScope', '$firebaseArray', '$firebaseObject', '$q', function(FBURL, $rootScope, $firebaseArray, $firebaseObject, $q) {
+    .factory('MeetupService', MeetupService);
+             
+    
+    
+    MeetupService.$inject = ['FBURL', '$rootScope', '$firebaseArray', '$firebaseObject', '$q'];
+    function MeetupService (FBURL, $rootScope, $firebaseArray, $firebaseObject, $q) {
 
       return {
         getMountains : getMountains
@@ -28,7 +33,7 @@
 
       }
       
-    }]);  //end MeetupService
+    }  //end MeetupService
   })();
 
 ////Service version
